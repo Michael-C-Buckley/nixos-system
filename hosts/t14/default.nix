@@ -11,8 +11,9 @@
     ./hardware-configuration.nix
   ];
 
+  custom.zfs.encryption = true;
+
   features = {
-    zfs.encryption = true;
     cosmic = true;
     gaming = false;
   };

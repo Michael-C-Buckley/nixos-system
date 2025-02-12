@@ -455,6 +455,29 @@
         "url": "ssh://git@github.com/Michael-C-Buckley/nix-secrets"
       }
     },
+    "nixos-modules": {
+      "inputs": {
+        "nix-devshells": [
+          "nix-devshells"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739331533,
+        "narHash": "sha256-eMOGeIQGHfKZNvjLpzVyQPH+9my0NQJLAoxPZ6iIA0U=",
+        "owner": "Michael-C-Buckley",
+        "repo": "nixos-modules",
+        "rev": "b3d887ebd25c04bb144516353a4864c3e7b9916a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Michael-C-Buckley",
+        "repo": "nixos-modules",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1739020877,
@@ -607,6 +630,7 @@
         "microvm": "microvm",
         "nix-devshells": "nix-devshells",
         "nix-secrets": "nix-secrets",
+        "nixos-modules": "nixos-modules",
         "nixpkgs": [
           "cosmic",
           "nixpkgs"
