@@ -2,17 +2,19 @@
   useFonts = config.features.pkgs.fonts;
 
   nerdFonts = with pkgs.nerd-fonts; lib.optionals useFonts [
-    agave
     caskaydia-cove
-    hurmit
+    commit-mono
+    fira-code
     jetbrains-mono
     symbols-only
+    iosevka
+    zed-mono
   ];
 in {
   fonts.packages = with pkgs; lib.optionals useFonts [
+    vista-fonts
     maple-mono
     b612
     font-awesome
-    nerd-fonts.agave
   ] ++ nerdFonts;
 }
