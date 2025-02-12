@@ -1,18 +1,23 @@
 # X570 Desktop Configuration
 
-{pkgs, ...}: {
-  imports = [
+{inputs, pkgs, ...}: let
+  nixMods = inputs.nixos-modules.nixosModules;
+in {
+  imports = with nixMods; [
+    libvirt
     ./hardware-configuration.nix
     ./filesystems.nix
     ./networking.nix
   ];
 
-  nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "24.05";
 
   features = {
     gaming = true;
-    virtualization.libvirt = true;
+  };
+
+  custom.virtualisation.libvirt = {
+    users = ["michael" "root"];
   };
 
   users.users.michael.packages = with pkgs; [

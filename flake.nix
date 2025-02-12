@@ -24,6 +24,12 @@
       inputs.nix-devshells.follows = "nix-devshells";
     };
 
+    nixos-modules = {
+      url = "github:Michael-C-Buckley/nixos-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-devshells.follows = "nix-devshells";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
