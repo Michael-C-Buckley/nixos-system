@@ -10,6 +10,7 @@
     nushell
     tmux
     inputs.wfetch.packages.x86_64-linux.default
+    starship
 
     # Editor
     neovim
