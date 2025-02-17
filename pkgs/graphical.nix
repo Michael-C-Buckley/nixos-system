@@ -33,7 +33,7 @@
     obsidian
     libreoffice
     kdePackages.kalgebra  # Calculator
-    zed-editor
+    # zed-editor # Builds too often and doesn't cache
 
     # Virtualization
     tigervnc
