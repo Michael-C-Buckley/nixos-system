@@ -4,10 +4,15 @@
     inputs.ucodenix.nixosModules.default
   ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "uas" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm" "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "uas" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ "dm-snapshot" ];
+    };
+    kernelParams = [ "amd_pstate=active" ]; # AMD Power efficiency on Linux 6.3+
+    kernelModules = [ "kvm" "kvm-amd" ];
+    extraModulePackages = [ ];
+  };
 
   # WIP: add swap
   swapDevices = [ ];

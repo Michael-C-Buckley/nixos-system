@@ -6,6 +6,7 @@
 
   boot = {
     kernelModules = [ "kvm" "kvm-amd" ];
+    kernelParams = [ "amd_pstate=active" ];
     extraModulePackages = [ ];
     initrd = {
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
