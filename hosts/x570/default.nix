@@ -5,8 +5,9 @@
 in {
   imports = with nixMods; [
     libvirt
-    ./hardware-configuration.nix
     ./filesystems.nix
+    ./frr.nix
+    ./hardware-configuration.nix
     ./networking.nix
   ];
 
