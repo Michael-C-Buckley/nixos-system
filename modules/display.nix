@@ -10,9 +10,16 @@
 
     services = {
       xserver.enable = true;
-      displayManager.sddm = {
-        enable = true;
-        theme = "chili";
+      displayManager = {
+        defaultSession = "hyprland";
+        autoLogin = {
+          enable = true;
+          user = "michael";
+        };
+        sddm = {
+          enable = true;
+          theme = "chili";
+        };
       };
     };
 
