@@ -36,5 +36,11 @@
     allowPing =  lib.mkDefault true;
     allowedTCPPorts = lib.mkDefault [22 179];
     allowedUDPPorts = lib.mkDefault [53 51820];
+    extraInputRules = ''
+      iptables -A INPUT -d 224.0.0.0/24 -j ACCEPT
+    '';
+    extraForwardRules = ''
+      iptables -A FORWARD -d 224.0.0.0/24 -j ACCEPT
+    '';
   };
 }

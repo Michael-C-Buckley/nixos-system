@@ -5,6 +5,7 @@
   services.frr = {
     # WIP: fd limits don't work still
     bgpd.enable = true;
+    eigrpd.enable = true;
     ospfd.enable = true;
     bgpd.options = [ "--limit-fds 2048" ];
     zebra.options = [ "--limit-fds 2048" ];
