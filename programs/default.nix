@@ -4,9 +4,12 @@
     ./winbox.nix
   ];
 
-  programs.zsh.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
+  programs = {
+    zsh.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+    wireshark.enable = true;
   };
 }

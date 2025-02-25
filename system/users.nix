@@ -1,6 +1,6 @@
 {pkgs, inputs, ...}: let
   sshKeys = inputs.nix-secrets.nixosModules.sshKeys;
-  allGroups = [ "networkmanager" "wheel" "video" ];
+  allGroups = [ "networkmanager" "wheel" "video" "wireshark" ];
 in {
   users = {
     users = {
