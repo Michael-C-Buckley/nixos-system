@@ -36,7 +36,7 @@ in {
         wakeOnLan.enable = true;
         ipv4 = {
           addresses = [brAddr];
-          routes = [brRoutes];
+          routes = brRoutes;
         };
       };
     };
