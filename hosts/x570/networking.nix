@@ -3,9 +3,10 @@
     address = "192.168.48.10";
     prefixLength = 24;
   };
+  # Static route for the home lab bridge, for now
   brRoute = {
-    address = "0.0.0.0";
-    prefixLength = 0;
+    address = "192.168.48.0";
+    prefixLength = 20;
     via = "192.168.48.1";
   };
 in {

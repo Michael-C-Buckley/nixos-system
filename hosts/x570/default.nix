@@ -28,6 +28,7 @@ in {
   ];
 
   environment.systemPackages = with pkgs; [
+    alacritty # For the consoles for GNS nodes, for now, may change later
     gns3-gui
     gns3-server
   ];
