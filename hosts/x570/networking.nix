@@ -3,12 +3,17 @@
     address = "192.168.48.10";
     prefixLength = 24;
   };
-  # Static route for the home lab bridge, for now
-  brRoute = {
+  # Static routes for the home lab bridge, for now
+  brRoutes = [{
     address = "192.168.48.0";
     prefixLength = 20;
     via = "192.168.48.1";
-  };
+  }
+  {
+    address = "192.168.64.0";
+    prefixLength = 20;
+    via = "192.168.48.1";
+  }];
 in {
   networking = {
     hostId = "007f0200";
@@ -31,7 +36,7 @@ in {
         wakeOnLan.enable = true;
         ipv4 = {
           addresses = [brAddr];
-          routes = [brRoute];
+          routes = [brRoutes];
         };
       };
     };
