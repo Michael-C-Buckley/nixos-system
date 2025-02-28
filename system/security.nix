@@ -6,9 +6,17 @@
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.x86_64-linux.default
-    sops
-    age
   ];
+
+  age.identityPaths = [
+    "/etc/ssh/ssh_host_ed25519_key"
+    "/etc/ssh/ssh_host_rsa_key"
+    "/home/michael/.ssh/id_ed25519"
+    "/root/.ssh/id_ed25519"
+  ];
+
+  # WIP: Age not working on desktop
+  # environment.etc."systemd/resolved.conf".source = config.age.secrets.dns.path;
 
   security = {
     rtkit.enable = true;
@@ -31,16 +39,13 @@
     };
   };
 
-  networking.firewall = {
-    enable = lib.mkDefault true;
-    allowPing =  lib.mkDefault true;
-    allowedTCPPorts = lib.mkDefault [22 179];
-    allowedUDPPorts = lib.mkDefault [53 51820];
-    extraInputRules = ''
-      iptables -A INPUT -d 224.0.0.0/24 -j ACCEPT
-    '';
-    extraForwardRules = ''
-      iptables -A FORWARD -d 224.0.0.0/24 -j ACCEPT
-    '';
+  networking = {
+    nftables.enable = true;
+    firewall = {
+      enable = lib.mkDefault true;
+      allowPing =  lib.mkDefault true;
+      allowedTCPPorts = lib.mkDefault [22 179];
+      allowedUDPPorts = lib.mkDefault [53 51820];
+    };
   };
 }

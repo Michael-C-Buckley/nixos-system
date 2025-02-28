@@ -4,7 +4,9 @@
   nixMods = inputs.nixos-modules.nixosModules;
 in {
   imports = with nixMods; [
+    inputs.nix-secrets.nixosModules.x570
     libvirt
+    ./systemd
     ./filesystems.nix
     ./frr.nix
     ./hardware-configuration.nix

@@ -10,6 +10,7 @@
       extraInputRules = ''
         ip protocol 89 accept comment "Allow OSPF"
       '';
+      allowedUDPPorts = [33401];
     };
 
     bridges.br0.interfaces = [];
