@@ -6,6 +6,8 @@
   ip forwarding
   router ospf
    ospf router-id 192.168.48.10
+  int enp8s0
+   ip ospf area 0
   int wlp7s0
    ip ospf area 0
   int lo

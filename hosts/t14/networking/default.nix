@@ -8,6 +8,9 @@
     networkmanager.enable = true;
 
     firewall = {
+      extraInputRules = ''
+        ip protocol 89 accept comment "Allow OSPF"
+      '';
       enable = true;
       allowPing = true;
     };

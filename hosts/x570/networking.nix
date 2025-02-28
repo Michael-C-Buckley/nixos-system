@@ -1,44 +1,22 @@
-{...}: let
-  brAddr = {
-    address = "192.168.48.10";
-    prefixLength = 24;
-  };
-  # Static routes for the home lab bridge, for now
-  brRoutes = [{
-    address = "192.168.48.0";
-    prefixLength = 20;
-    via = "192.168.48.1";
-  }
-  {
-    address = "192.168.64.0";
-    prefixLength = 20;
-    via = "192.168.48.1";
-  }];
-in {
+{lib, ...}: {
   networking = {
     hostId = "007f0200";
-    useDHCP = false;
+    useDHCP = lib.mkForce true;
     hostName = "x570";
     networkmanager.enable = true;
     usePredictableInterfaceNames = true;
 
-    nameservers = [
-      "192.168.48.1"
-      "192.168.65.1"
-    ];
+    firewall = {
+      extraInputRules = ''
+        ip protocol 89 accept comment "Allow OSPF"
+      '';
+    };
 
-    bridges.br0.interfaces = [ "enp8s0" ];
+    bridges.br0.interfaces = [];
     interfaces = {
-      # WIP: add default wifi to config
-      wlp7s0.useDHCP = false;
-      enp8s0.useDHCP = false;
-      br0 = {
-        wakeOnLan.enable = true;
-        ipv4 = {
-          addresses = [brAddr];
-          routes = brRoutes;
-        };
-      };
+      lo.ipv4.addresses = [{
+        address = "192.168.63.10"; prefixLength = 32;
+      }];
     };
   };
 }
