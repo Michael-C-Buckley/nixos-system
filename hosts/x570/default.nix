@@ -16,11 +16,13 @@ in {
   system.stateVersion = "24.05";
 
   features = {
+    cosmic = true;
     gaming = true;
   };
 
-  custom.virtualisation.libvirt = {
-    users = ["michael" "root"];
+  custom.virtualisation = {
+    gns3.enable = true;
+    libvirt.users = ["michael" "root"];
   };
 
   users.users.michael.packages = with pkgs; [
@@ -28,17 +30,4 @@ in {
     terraform
     terraform-ls
   ];
-
-  environment.systemPackages = with pkgs; [
-    alacritty # For the consoles for GNS nodes, for now, may change later
-    gns3-gui
-    gns3-server
-  ];
-
-  services = {
-    gns3-server = {
-      enable = true;
-      ubridge.enable = true;
-    };
-  };
 }

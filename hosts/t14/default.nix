@@ -1,11 +1,13 @@
 # T14 Laptop Configuration
 
 {inputs, ...}: let 
+  inherit (inputs.nixos-modules.nixosModules) libvirt;
   inherit (inputs.nix-secrets.nixosModules) t14;
 in {
   system.stateVersion = "24.11";
 
   imports = [
+    libvirt
     t14
     ./networking
     ./systemd
@@ -13,17 +15,16 @@ in {
     ./hardware-configuration.nix
   ];
 
-  custom.zfs.encryption = true;
-
   features = {
     cosmic = true;
     gaming = false;
   };
 
-  services = {
-    ucodenix = {
-      enable = true;
-      cpuModelId = "00A50F00";
+  custom = {
+    virtualisation = {
+      gns3.enable = true;
+      libvirt.users = ["michael" "root"];
     };
+    zfs.encryption = true;
   };
 }
