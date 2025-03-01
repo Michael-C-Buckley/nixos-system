@@ -1,6 +1,6 @@
 {lib, ...}: {
   networking = {
-    hostId = "007f0200";
+    hostId = "c07fa570";
     useDHCP = lib.mkForce true;
     hostName = "x570";
     networkmanager.enable = true;

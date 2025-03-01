@@ -1,10 +1,12 @@
 # T14 Laptop Configuration
 
-{inputs, ...}: {
+{inputs, ...}: let 
+  inherit (inputs.nix-secrets.nixosModules) t14;
+in {
   system.stateVersion = "24.11";
 
   imports = [
-    inputs.nix-secrets.nixosModules.t14
+    t14
     ./networking
     ./systemd
     ./filesystems.nix
@@ -17,8 +19,6 @@
     cosmic = true;
     gaming = false;
   };
-
-  networking.hostId = "8425e349";
 
   services = {
     ucodenix = {

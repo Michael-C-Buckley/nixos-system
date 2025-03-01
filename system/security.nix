@@ -10,7 +10,6 @@
 
   age.identityPaths = [
     "/etc/ssh/ssh_host_ed25519_key"
-    "/etc/ssh/ssh_host_rsa_key"
     "/home/michael/.ssh/id_ed25519"
     "/root/.ssh/id_ed25519"
   ];
@@ -31,21 +30,15 @@
     printing.enable = false;
     openssh.enable = lib.mkDefault true;
     vscode-server.enable = lib.mkDefault true;
-
-    fail2ban = {
-      enable = true;
-      maxretry =  4;
-      bantime = "30m";
-    };
   };
 
   networking = {
     nftables.enable = true;
     firewall = {
-      enable = lib.mkDefault true;
-      allowPing =  lib.mkDefault true;
-      allowedTCPPorts = lib.mkDefault [22 179];
-      allowedUDPPorts = lib.mkDefault [53 51820];
+      enable = true;
+      allowPing =  true;
+      allowedTCPPorts = [22 53 179];
+      allowedUDPPorts = [53 51820];
     };
   };
 }
