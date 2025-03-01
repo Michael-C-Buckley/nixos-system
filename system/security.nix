@@ -1,10 +1,12 @@
-{ inputs, pkgs, lib,...}: {
+{ config, inputs, lib,...}: let
+  inherit (lib) mkDefault mkForce;
+in {
 
   imports = [
     inputs.agenix.nixosModules.default
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     inputs.agenix.packages.x86_64-linux.default
   ];
 
@@ -15,7 +17,8 @@
   ];
 
   # WIP: Age not working on desktop
-  # environment.etc."systemd/resolved.conf".source = config.age.secrets.dns.path;
+  # services.resolved.enable = true;
+  environment.etc."systemd/resolved.conf".source = mkForce config.age.secrets.dns.path;
 
   security = {
     rtkit.enable = true;
@@ -28,8 +31,8 @@
   # Revoke printing for its flaws over the years
   services = {
     printing.enable = false;
-    openssh.enable = lib.mkDefault true;
-    vscode-server.enable = lib.mkDefault true;
+    openssh.enable = mkDefault true;
+    vscode-server.enable = mkDefault true;
   };
 
   networking = {
