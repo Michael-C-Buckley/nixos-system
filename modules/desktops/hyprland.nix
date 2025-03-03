@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}:   let
+{config, pkgs, lib, inputs, ...}:   let
   useGraphics = config.features.graphics;
 
   hyprPkgs = with pkgs; [
@@ -23,6 +23,7 @@
 in {
   programs.hyprland = {
     enable = useGraphics;
+    package = inputs.hyprland.packages.x86_64-linux.hyprland;
     xwayland.enable = useGraphics;
   };
 

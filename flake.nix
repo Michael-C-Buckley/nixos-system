@@ -6,6 +6,8 @@
     cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixpkgs.follows = "cosmic/nixpkgs";
 
+    hyprland.url = "github:hyprwm/hyprland";
+
     # Utilities
     ucodenix.url = "github:e-tho/ucodenix";
     vscode-server.url = "github:nix-community/nixos-vscode-server";

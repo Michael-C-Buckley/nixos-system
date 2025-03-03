@@ -6,7 +6,7 @@
       efi.canTouchEfiVariables = true;
       systemd-boot = {
         enable = true;
-        configurationLimit = lib.mkDefault 4;
+        configurationLimit = lib.mkDefault 10;
       };
     };
   };
