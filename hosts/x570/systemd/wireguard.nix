@@ -1,6 +1,7 @@
-{config, pkgs, lib, ... }: let 
+{config, pkgs, lib, inputs, ... }: let 
   # WIP: This works to avoid having to define the lambda each time, but is still ugly
-  wireguardInterface = import ../../../modules/wireguard-interface.nix { inherit config pkgs lib; };
+  # wireguardInterface = import ../../../modules/wireguard-interface.nix { inherit config pkgs lib; };
+  wireguardInterface = inputs.nixos-modules.nixosModules.wireguard-interface {inherit config pkgs lib;};
 in {
   systemd.services = {
     "wireguard-cary4" = wireguardInterface {
