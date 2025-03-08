@@ -59,7 +59,7 @@
     michael-home,
     ...
   } @ inputs: let
-    stablePkgs = import inputs.nixpkgs-stable {system="x86_64-linux";};
+    stablePkgs = import inputs.nixpkgs-stable {system="x86_64-linux"; config.allowUnfree = true;};
     systemConfig = {host}: nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs stablePkgs host;};
       modules = [
