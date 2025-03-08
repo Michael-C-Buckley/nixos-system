@@ -8,6 +8,14 @@
 
     hyprland.url = "github:hyprwm/hyprland";
 
+    # User configs
+    michael-home = {
+      url = "github:Michael-C-Buckley/home-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "";
+    };
+    hjem.follows = "michael-home/hjem";
+
     # Utilities
     ucodenix.url = "github:e-tho/ucodenix";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
@@ -47,13 +55,15 @@
   outputs = {
     nixpkgs,
     nix-devshells,
+    michael-home,
     ...
   } @ inputs: let
     systemConfig = {host}: nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs host;};
       modules = [
         ./default.nix
         ./hosts/${host}
+        michael-home.nixosModules.hjem.${host}
       ];
     };
     hosts = [
