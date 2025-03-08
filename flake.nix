@@ -5,6 +5,7 @@
     # Following Cosmic to maximize Cachix hits and reduce duplication
     cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixpkgs.follows = "cosmic/nixpkgs";
+    nixpkgs-stable.follows = "cosmic/nixpkgs-stable";
 
     hyprland.url = "github:hyprwm/hyprland";
 
@@ -58,8 +59,9 @@
     michael-home,
     ...
   } @ inputs: let
+    stablePkgs = import inputs.nixpkgs-stable {system="x86_64-linux";};
     systemConfig = {host}: nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs host;};
+      specialArgs = {inherit inputs stablePkgs host;};
       modules = [
         ./default.nix
         ./hosts/${host}

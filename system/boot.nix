@@ -1,6 +1,6 @@
-{pkgs, lib, ...}: {
+{stablePkgs, lib, ...}: {
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_xanmod_stable;
+    kernelPackages = lib.mkDefault stablePkgs.linuxKernel.packages.linux_xanmod;
     loader = {
       grub.enable = false;
       efi.canTouchEfiVariables = true;
