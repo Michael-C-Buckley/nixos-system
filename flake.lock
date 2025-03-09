@@ -799,11 +799,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741449775,
-        "narHash": "sha256-t+ZYt8wtSgS2d+l0bejlKyP2md+HwHgb4D+NRPnLvq0=",
+        "lastModified": 1741526531,
+        "narHash": "sha256-/93gMnYCxY6WFSirhf7KE/hIhUI6sh6g23ExwG6FKdQ=",
         "owner": "Michael-C-Buckley",
         "repo": "nixos-modules",
-        "rev": "45caad6e3fc1db6262493c624202e2bfd234e02d",
+        "rev": "c5fc9b655264c2b1812a03a83e9f322dae253d95",
         "type": "github"
       },
       "original": {
