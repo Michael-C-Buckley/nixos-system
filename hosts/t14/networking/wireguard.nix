@@ -12,7 +12,6 @@ in {
     };
     "wireguard-o1" = wireguardInterface {
       name = "o1";
-      cfgPath = "/etc/wireguard/o1.conf";
       ipAddresses = ["192.168.32.131/27"];
     };
   };

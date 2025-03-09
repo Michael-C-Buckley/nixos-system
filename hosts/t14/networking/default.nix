@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./frr.nix
+    ./wireguard.nix
   ];
 
   networking = {
