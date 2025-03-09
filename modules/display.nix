@@ -12,14 +12,8 @@
       xserver.enable = true;
       displayManager = {
         defaultSession = "hyprland";
-        autoLogin = {
-          enable = true;
-          user = "michael";
-        };
-        sddm = {
-          enable = true;
-          theme = "chili";
-        };
+        # autoLogin = { enable = true; user = "michael"; };
+        sddm = { enable = true; theme = "chili"; };
       };
     };
 
