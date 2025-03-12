@@ -25,13 +25,11 @@
     nix-devshells = {
       url = "github:Michael-C-Buckley/nix-devshells";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.agenix.follows = "agenix";
     };
 
     nix-secrets = {
       url = "git+ssh://git@github.com/Michael-C-Buckley/nix-secrets";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.agenix.follows = "agenix";
       inputs.nix-devshells.follows = "nix-devshells";
     };
 
@@ -41,10 +39,9 @@
       inputs.nix-devshells.follows = "nix-devshells";
     };
 
-    agenix = {
-      url = "github:ryantm/agenix";
+    ragenix = {
+      url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
     };
 
     microvm = {

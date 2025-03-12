@@ -1,13 +1,14 @@
-{ config, inputs, lib,...}: let
-  inherit (lib) mkDefault mkForce;
+{inputs, lib, pkgs, ...}: let
+  inherit (lib) mkDefault;
 in {
 
   imports = [
-    inputs.agenix.nixosModules.default
+    inputs.ragenix.nixosModules.default
   ];
 
-  environment.systemPackages = [
-    inputs.agenix.packages.x86_64-linux.default
+  environment.systemPackages = with pkgs; [
+    ragenix
+    sops
   ];
 
   age.identityPaths = [
@@ -18,13 +19,13 @@ in {
 
   # WIP: Age not working on desktop
   # services.resolved.enable = true;
-  environment.etc."systemd/resolved.conf".source = mkForce config.age.secrets.dns.path;
+  # environment.etc."systemd/resolved.conf".source = mkForce config.age.secrets.dns.path;
 
   security = {
     rtkit.enable = true;
     sudo = {
       extraConfig = "Defaults lecture=never";
-      wheelNeedsPassword = lib.mkDefault false;
+      wheelNeedsPassword = mkDefault false;
     };
   };
 
