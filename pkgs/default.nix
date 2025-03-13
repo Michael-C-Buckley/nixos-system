@@ -1,4 +1,5 @@
 {pkgs, inputs, ...} : let
+  wfetch = inputs.wfetch.packages.x86_64-linux.default;
   commonPkgs = with pkgs; [
     # System
     home-manager
@@ -9,14 +10,13 @@
     # Shells (Zsh defined on its own)
     nushell
     tmux
-    inputs.wfetch.packages.x86_64-linux.default
+    wfetch
     starship
 
     # Editor
     neovim
 
     # Development/Management
-    devenv
     python3
     git
     tig
