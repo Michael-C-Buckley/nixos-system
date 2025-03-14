@@ -16,6 +16,8 @@ in {
   system.stateVersion = "24.05";
 
   features = {
+    autoLogin = true; # Only if not on Ly
+    displayManager = "sddm";
     cosmic = true;
     gaming = true;
   };
