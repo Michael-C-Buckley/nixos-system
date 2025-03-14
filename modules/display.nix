@@ -13,7 +13,8 @@
       displayManager = {
         defaultSession = "hyprland";
         # autoLogin = { enable = true; user = "michael"; };
-        sddm = { enable = true; theme = "chili"; };
+        # sddm = { enable = true; theme = "chili"; };
+        ly.enable = true;
       };
     };
 
