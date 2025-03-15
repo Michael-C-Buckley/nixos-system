@@ -50,7 +50,6 @@
 in {
   imports = [
     ./fonts.nix
-    ./graphical.nix
     ./laptop.nix
     ./network.nix
     ./options.nix
