@@ -68,6 +68,7 @@
     hosts = [
       "x570"
       "t14"
+      "p520"
     ];
   in {
     nixosConfigurations = builtins.listToAttrs (map (host: {
