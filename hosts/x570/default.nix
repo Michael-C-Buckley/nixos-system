@@ -1,10 +1,11 @@
 # X570 Desktop Configuration
 
-{inputs, pkgs, ...}: let
-  nixMods = inputs.nixos-modules.nixosModules;
+{inputs, ...}: let
+  inherit (inputs.nixos-modules.nixosModules) gns3 libvirt;
 in {
-  imports = with nixMods; [
+  imports = [
     inputs.nix-secrets.nixosModules.x570
+    gns3
     libvirt
     ./systemd
     ./filesystems.nix
@@ -17,7 +18,7 @@ in {
 
   features = {
     autoLogin = true; # Only if not on Ly
-    displayManager = "sddm";
+    displayManager = "ly";
     cosmic = true;
     gaming = true;
   };
@@ -26,10 +27,4 @@ in {
     gns3.enable = true;
     libvirt.users = ["michael" "root"];
   };
-
-  users.users.michael.packages = with pkgs; [
-    ansible
-    terraform
-    terraform-ls
-  ];
 }
