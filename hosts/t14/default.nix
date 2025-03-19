@@ -10,10 +10,9 @@ in {
     gns3
     libvirt
     t14
+    ./hardware
     ./networking
     ./systemd
-    ./filesystems.nix
-    ./hardware-configuration.nix
   ];
 
   features = {

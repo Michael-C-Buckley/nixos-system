@@ -2,6 +2,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.ucodenix.nixosModules.default
+    ./filesystems.nix
   ];
 
   boot = {
@@ -19,7 +20,7 @@
   networking.useDHCP = lib.mkDefault true;
 
   services.ucodenix = {
-    enable = false;
+    enable = true;
     cpuModelId = "00A50F00";
   };
 

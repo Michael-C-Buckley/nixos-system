@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./frr.nix
+    ./routing.nix
     ./wireguard.nix
   ];
 

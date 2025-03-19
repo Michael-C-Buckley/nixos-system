@@ -21,7 +21,7 @@
 
   services.frr = {
     bgpd.enable = true;
-    eigrpd.enable = true;
+    bfdd.enable = true;
     ospfd.enable = true;
     bgpd.options = [ "--limit-fds 2048" ];
     zebra.options = [ "--limit-fds 2048" ];

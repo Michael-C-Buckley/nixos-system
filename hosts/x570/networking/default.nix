@@ -1,4 +1,9 @@
 {lib, ...}: {
+  imports = [
+    ./routing.nix
+    ./wireguard.nix
+  ];
+
   networking = {
     hostId = "c07fa570";
     useDHCP = lib.mkForce true;

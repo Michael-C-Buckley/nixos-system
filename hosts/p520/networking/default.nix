@@ -1,4 +1,8 @@
 _: {
+  imports = [
+    ./routing.nix
+  ];
+  
   networking = {
     hostName = "p520";
     hostId = "181a3ead";

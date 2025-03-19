@@ -7,11 +7,8 @@ in {
     inputs.nix-secrets.nixosModules.x570
     gns3
     libvirt
-    ./systemd
-    ./filesystems.nix
-    ./frr.nix
-    ./hardware-configuration.nix
-    ./networking.nix
+    ./hardware
+    ./networking
   ];
 
   system.stateVersion = "24.05";
