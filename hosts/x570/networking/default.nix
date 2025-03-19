@@ -23,6 +23,12 @@
       lo.ipv4.addresses = [{
         address = "192.168.63.10"; prefixLength = 32;
       }];
+      enp8s0.ipv4.addresses = [{
+        address = "192.168.48.10"; prefixLength = 24;
+      }];
+      enp9s0.ipv4.addresses = [{
+        address = "192.168.48.11"; prefixLength = 24;
+      }];
     };
   };
 }
