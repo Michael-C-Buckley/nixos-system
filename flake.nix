@@ -6,6 +6,10 @@
     cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixpkgs.follows = "cosmic/nixpkgs";
     nixpkgs-stable.follows = "cosmic/nixpkgs-stable";
+    lix = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # User configs
     michael-home = {
@@ -50,6 +54,7 @@
         ./default.nix
         ./hosts/${host}
         michael-home.nixosModules.hjem.${host}
+        inputs.lix.nixosModules.default
       ];
     };
     hosts = [

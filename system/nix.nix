@@ -1,16 +1,14 @@
-{pkgs, lib, ...}: {
+{lib, ...}: {
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   nix = {
-    package = pkgs.nixVersions.latest;
+    # Lix used via the flake file
     settings = {
       auto-optimise-store = true;
       warn-dirty = false;
       experimental-features = [
         "nix-command"
         "flakes"
-        "auto-allocate-uids"
-        "pipe-operators"
       ];
       substituters = [
         "https://cache.nixos.org"
