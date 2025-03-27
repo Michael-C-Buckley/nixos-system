@@ -6,10 +6,7 @@
     cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixpkgs.follows = "cosmic/nixpkgs";
     nixpkgs-stable.follows = "cosmic/nixpkgs-stable";
-    lix = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    lix.url = "git+https://git.lix.systems/lix-project/lix";
 
     # User configs
     michael-home = {
@@ -29,16 +26,8 @@
     # Utilities
     ucodenix.url = "github:e-tho/ucodenix";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-
-    ragenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    ragenix.url = "github:yaxitech/ragenix";
+    microvm.url = "github:astro/microvm.nix";
   };
 
   outputs = {
@@ -54,7 +43,6 @@
         ./default.nix
         ./hosts/${host}
         michael-home.nixosModules.hjem.${host}
-        inputs.lix.nixosModules.default
       ];
     };
     hosts = [
